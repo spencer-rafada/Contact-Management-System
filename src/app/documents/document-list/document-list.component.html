@@ -1,13 +1,17 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="row pad-left-right">
-      <span class="pull-left title">Add Documents</span>
-      <a href="#" class="btn btn-success pull-right">Add Document</a>
+      <span class="pull-left title">Documents</span>
+      <a class="btn btn-success pull-right">Add Document</a>
     </div>
   </div>
   <div class="panel-body">
     <div class="center-panel">
-      <app-document-item></app-document-item>
+      <app-document-item
+        *ngFor="let docEl of documents"
+        [document]="docEl"
+        (click)="onSelectedDocument(docEl)"
+      ></app-document-item>
     </div>
   </div>
 </div>
