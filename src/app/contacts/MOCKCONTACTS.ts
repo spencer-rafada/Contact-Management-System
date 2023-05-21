@@ -303,4 +303,12 @@ export const MOCKCONTACTS: Contact[] = [
       },
     ],
   },
+  {
+    id: '19',
+    name: 'Spencer Rafada',
+    email: 'raf17001@byui.edu',
+    phone: '323-274-9535',
+    imageUrl: 'null',
+    group: null,
+  },
 ];
