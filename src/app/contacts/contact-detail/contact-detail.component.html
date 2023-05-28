@@ -18,8 +18,8 @@
               />
             </span>
             <div class="btn-group pull-right">
-              <button type="button" class="btn btn-primary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
+              <a class="btn btn-primary" [routerLink]="['edit']">Edit</a>
+              <a class="btn btn-danger" (click)="onDelete()">Delete</a>
             </div>
           </div>
         </div>
