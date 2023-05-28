@@ -2,7 +2,9 @@
   <div class="panel-heading">
     <div class="row pad-left-right">
       <span class="pull-left title">Documents</span>
-      <a class="btn btn-success pull-right">Add Document</a>
+      <a class="btn btn-success pull-right" [routerLink]="['new']"
+        >Add Document</a
+      >
     </div>
   </div>
   <div class="panel-body">
@@ -10,7 +12,7 @@
       <app-document-item
         *ngFor="let docEl of documents"
         [document]="docEl"
-        (click)="onSelectedDocument(docEl)"
+        [index]="docEl.id"
       ></app-document-item>
     </div>
   </div>
