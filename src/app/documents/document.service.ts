@@ -21,7 +21,6 @@ export class DocumentService {
   getMaxId(): number {
     let maxId = 0;
     this.documents.forEach((document) => {
-      console.log(document);
       let currentId = parseInt(document.id);
       if (currentId > maxId) {
         maxId = currentId;
