@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Document } from '../document.model';
 import { NgForm } from '@angular/forms';
 import { DocumentService } from '../document.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-document-edit',
   templateUrl: './document-edit.component.html',
   styleUrls: ['./document-edit.component.css'],
 })
-export class DocumentEditComponent implements OnInit {
+export class DocumentEditComponent implements OnInit, OnDestroy {
   originalDocument: Document;
   document: Document;
   editMode: boolean = false;
   id: string;
+  subscription: Subscription;
 
   constructor(
     private docService: DocumentService,
@@ -22,7 +24,7 @@ export class DocumentEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
+    this.subscription = this.route.params.subscribe((params: Params) => {
       this.id = params['id'];
       if (this.id) {
         this.editMode = false;
@@ -54,5 +56,9 @@ export class DocumentEditComponent implements OnInit {
 
   onCancel() {
     this.router.navigate(['../'], { relativeTo: this.route });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
