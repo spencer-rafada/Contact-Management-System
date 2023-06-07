@@ -19,6 +19,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
 import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 import { FormsModule } from '@angular/forms';
+import { DocumentService } from './documents/document.service';
+import { ContactService } from './contacts/contact.service';
+import { MessageService } from './messages/message.service';
+import { DndModule } from 'ng2-dnd';
 
 @NgModule({
   declarations: [
@@ -39,8 +43,8 @@ import { FormsModule } from '@angular/forms';
     DocumentEditComponent,
     ContactEditComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, DndModule.forRoot()],
+  providers: [DocumentService, ContactService, MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
