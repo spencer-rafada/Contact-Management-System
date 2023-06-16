@@ -24,6 +24,7 @@ import { ContactService } from './contacts/contact.service';
 import { MessageService } from './messages/message.service';
 import { DndModule } from 'ng2-dnd';
 import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,13 @@ import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
     ContactEditComponent,
     ContactsFilterPipe,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, DndModule.forRoot()],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    DndModule.forRoot(),
+    HttpClientModule,
+  ],
   providers: [DocumentService, ContactService, MessageService],
   bootstrap: [AppComponent],
 })
