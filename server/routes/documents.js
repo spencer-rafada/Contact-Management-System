@@ -75,12 +75,10 @@ router.delete("/:id", (req, res, next) => {
         });
     })
     .catch((error) => {
-      res
-        .status(500)
-        .json({
-          message: "Document not found",
-          error: { document: "Document not found" },
-        });
+      res.status(500).json({
+        message: "Document not found",
+        error: { document: "Document not found" },
+      });
     });
 });
 
