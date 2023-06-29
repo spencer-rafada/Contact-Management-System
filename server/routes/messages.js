@@ -9,7 +9,7 @@ router.get("/", (req, res, next) => {
     .then((message) => {
       res.status(200).json({
         message: "Messages fetched successfully",
-        messages: message,
+        documents: message,
       });
     })
     .catch((error) => {
