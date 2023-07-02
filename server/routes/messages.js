@@ -1,11 +1,13 @@
 var express = require("express");
 var router = express.Router();
+var { Types } = require("mongoose");
 
 const sequenceGenerator = require("./sequenceGenerator");
 const Message = require("../models/message");
 
 router.get("/", (req, res, next) => {
   Message.find()
+    .populate("sender")
     .then((message) => {
       res.status(200).json({
         message: "Messages fetched successfully",
@@ -24,7 +26,7 @@ router.post("/", (req, res, next) => {
     id: maxMessageId,
     subject: req.body.subject,
     msgText: req.body.msgText,
-    sender: req.body.sender,
+    sender: new Types.ObjectId(req.body.sender),
   });
 
   message
