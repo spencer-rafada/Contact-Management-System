@@ -5,6 +5,7 @@ var http = require("http");
 var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+var mongoose = require("mongoose");
 
 // import the routing file to handle the default (index) route
 var index = require("./server/routes/app");
@@ -12,6 +13,17 @@ var index = require("./server/routes/app");
 const messageRoutes = require("./server/routes/messages");
 const contactRoutes = require("./server/routes/contacts");
 const documentsRoutes = require("./server/routes/documents");
+
+mongoose
+  .connect(
+    "mongodb+srv://spencerbyui:3bs0H5fgfz5XVjAl@cluster0.9necsfd.mongodb.net/cms?retryWrites=true&w=majority"
+  )
+  .then(() => {
+    console.log("Connected to database.");
+  })
+  .catch((error) => {
+    console.log("Connection failed: " + error);
+  });
 
 var app = express(); // create an instance of express
 

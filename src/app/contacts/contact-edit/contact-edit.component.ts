@@ -47,11 +47,12 @@ export class ContactEditComponent implements OnInit, OnDestroy {
   onSubmit(form: NgForm) {
     const value = form.value;
     const newContact = new Contact(
-      'new',
+      '',
       value.name,
       value.email,
       value.phone,
-      value.imageUrl
+      value.imageUrl,
+      this.groupContacts
     );
     if (this.editMode) {
       this.contactService.updateContact(this.originalContact, newContact);

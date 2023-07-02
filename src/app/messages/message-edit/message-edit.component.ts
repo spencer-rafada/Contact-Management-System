@@ -25,7 +25,12 @@ export class MessageEditComponent {
     event.preventDefault();
     const msgSubject = this.subjectRef.nativeElement.value;
     const msgText = this.msgTextRef.nativeElement.value;
-    const newMsg = new Message('1', msgSubject, msgText, '19');
+    const newMsg = new Message(
+      '1',
+      msgSubject,
+      msgText,
+      '64a0f2a9bafa1a789492f212'
+    );
     this.messageService.addMessage(newMsg);
   }
   onClear() {
