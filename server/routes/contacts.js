@@ -46,9 +46,11 @@ router.post("/", (req, res, next) => {
 router.put("/:id", (req, res, next) => {
   Contact.findOne({ id: req.params.id })
     .then((contact) => {
-      contact.subject = req.body.subject;
-      contact.msgText = req.body.msgText;
-      contact.sender - req.body.sender;
+      contact.name = req.body.name;
+      contact.email = req.body.email;
+      contact.phone = req.body.phone;
+      contact.imageUrl = req.body.imageUrl;
+      contact.group = req.body.group;
 
       Contact.updateOne({ id: req.params.id }, contact)
         .then((result) => {
