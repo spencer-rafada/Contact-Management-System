@@ -51,7 +51,8 @@ export class ContactEditComponent implements OnInit, OnDestroy {
       value.name,
       value.email,
       value.phone,
-      value.imageUrl
+      value.imageUrl,
+      this.groupContacts
     );
     if (this.editMode) {
       this.contactService.updateContact(this.originalContact, newContact);
